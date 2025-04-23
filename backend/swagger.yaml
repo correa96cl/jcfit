@@ -1,0 +1,425 @@
+openapi: 3.0.0
+info:
+  title: API de JCFIT
+  version: 1.0.0
+paths:
+  /api/alunos/add:
+    post:
+      summary: Adiciona um novo aluno
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Aluno'
+      responses:
+        '201':
+          description: Aluno adicionado com sucesso
+        '400':
+          description: Dados inválidos ou aluno já cadastrado
+        '500':
+          description: Erro ao adicionar aluno
+  /api/alunos/{id}:
+    get:
+      summary: Retorna um aluno por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Aluno encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aluno'
+        '400':
+          description: ID inválido
+        '404':
+          description: Aluno não encontrado
+    put:
+      summary: Atualiza um aluno por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Aluno'
+      responses:
+        '200':
+          description: Aluno atualizado com sucesso
+        '404':
+          description: Aluno não encontrado
+  /api/alunos/filtros:
+    post:
+      summary: Retorna alunos por filtros
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Aluno'
+      responses:
+        '200':
+          description: Alunos encontrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Aluno'
+        '404':
+          description: Aluno não encontrado
+  /api/alunos:
+    get:
+      summary: Retorna todos os alunos
+      responses:
+        '200':
+          description: Lista de alunos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Aluno'
+  /api/alunos/inativar/{id}:
+    patch:
+      summary: Inativa um aluno por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Aluno inativado com sucesso
+        '404':
+          description: Aluno não encontrado
+  /api/alunos/ativar/{id}:
+    patch:
+      summary: Ativa um aluno por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Aluno ativado com sucesso
+        '404':
+          description: Aluno não encontrado
+  /api/aulas/add:
+    post:
+      summary: Adiciona uma nova aula
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Aula'
+      responses:
+        '201':
+          description: Aula adicionada com sucesso
+        '400':
+          description: Erro ao adicionar aula
+  /api/aulas/{id}:
+    get:
+      summary: Retorna uma aula por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Aula encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Aula'
+        '404':
+          description: Aula não encontrada
+  /api/aluno_aula/add:
+    post:
+      summary: Adiciona um registro de aluno_aula
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlunoAula'
+      responses:
+        '201':
+          description: Registro de aluno_aula adicionado com sucesso
+        '400':
+          description: Erro ao adicionar registro de aluno_aula
+  /api/aluno_aula/{id}:
+    get:
+      summary: Retorna um registro de aluno_aula por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Registro de aluno_aula encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlunoAula'
+        '404':
+          description: Registro de aluno_aula não encontrado
+  /api/exercicios/add:
+    post:
+      summary: Adiciona um novo exercício
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exercicio'
+      responses:
+        '201':
+          description: Exercício adicionado com sucesso
+        '400':
+          description: Erro ao adicionar exercício
+  /api/exercicios/{id}:
+    get:
+      summary: Retorna um exercício por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Exercício encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exercicio'
+        '404':
+          description: Exercício não encontrado
+  /api/progresso_aluno/add:
+    post:
+      summary: Adiciona um registro de progresso do aluno
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProgressoAluno'
+      responses:
+        '201':
+          description: Progresso do aluno adicionado com sucesso
+        '400':
+          description: Erro ao adicionar progresso do aluno
+  /api/progresso_aluno/{id}:
+    get:
+      summary: Retorna um registro de progresso do aluno por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Progresso do aluno encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgressoAluno'
+        '404':
+          description: Progresso do aluno não encontrado
+  /api/progresso_aluno/aluno/{aluno_id}:
+    get:
+      summary: Retorna todos os registros de progresso de um aluno específico
+      parameters:
+        - name: aluno_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Registros de progresso do aluno encontrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProgressoAluno'
+        '404':
+          description: Progresso do aluno não encontrado para este aluno
+  /api/rotinas/add:
+    post:
+      summary: Adiciona uma nova rotina
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rotina'
+      responses:
+        '201':
+          description: Rotina adicionada com sucesso
+        '400':
+          description: Erro ao adicionar rotina
+  /api/rotinas/{id}:
+    get:
+      summary: Retorna uma rotina por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Rotina encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rotina'
+components:
+  schemas:
+    Aluno:
+      type: object
+      properties:
+        nome:
+          type: string
+        sobrenome:
+          type: string
+        email:
+          type: string
+        telefone:
+          type: string
+        data_nascimento:
+          type: string
+          format: date
+        ativo:
+          type: integer
+      required:
+        - nome
+        - sobrenome
+        - email
+        - telefone
+        - data_nascimento
+        - ativo
+    Aula:
+      type: object
+      properties:
+        id:
+          type: integer
+        descricao:
+          type: string
+        data_hora:
+          type: string
+          format: date-time
+        duracao:
+          type: object
+          properties:
+            hours:
+              type: integer
+            minutes:
+              type: integer
+          required:
+            - hours
+            - minutes
+        localizacao:
+          type: string
+      required:
+        - id
+        - descricao
+        - data_hora
+        - duracao
+        - localizacao
+    AlunoAula:
+      type: object
+      properties:
+        id:
+          type: integer
+        aluno_id:
+          type: integer
+        aula_id:
+          type: integer
+        status:
+          type: string
+      required:
+        - id
+        - aluno_id
+        - aula_id
+        - status
+    Exercicio:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        descricao:
+          type: string
+        grupo_muscular:
+          type: string
+      required:
+        - id
+        - nome
+        - descricao
+        - grupo_muscular
+    ProgressoAluno:
+      type: object
+      properties:
+        id:
+          type: integer
+        aluno_id:
+          type: integer
+        data:
+          type: string
+          format: date
+        peso:
+          type: number
+          format: float
+        gordura_corporal:
+          type: number
+          format: float
+        musculo:
+          type: number
+          format: float
+      required:
+        - id
+        - aluno_id
+        - data
+        - peso
+        - gordura_corporal
+        - musculo
+    Rotina:
+      type: object
+      properties:
+        id:
+          type: integer
+        aula_id:
+          type: integer
+        nome:
+          type: string
+        descricao:
+          type: string
+      required:
+        - id
+        - aula_id
+        - nome
+        - descricao

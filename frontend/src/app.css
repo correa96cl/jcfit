@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+ 
+:root {
+    --cor-fundo-body: #0f0f0f;
+    --cor-texto-principal: #FAFAFA;
+    --branco: #FAFAFA;
+    --cinza: #EAEAEA;
+    --cinza-escura: #343232;
+    --laranja: #FF734C;
+    --verde: #41A86A;
+    --amarelo: #f3c512;
+    --azul-primario: #3b82f6;
+    --azul-escuro: #2563eb;
+    --vermelho: #ef4444;
+}
+ 
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-texto-principal);
+   
+    min-height: 100vh;
+    background-color: var(--cor-fundo-body);
+    background-size: 100%;
+}
+ 
+button, input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+ 
+button {
+    border: 0;
+    background-color: transparent;
+}
+ 
+li {
+    list-style: none;
+}
+
+label {
+    color: #0f0f0f;
+}
+
+.modal-title {
+    color: #0f0f0f;
+}
+
+button.shadow {
+    padding: 10px 20px;
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease; /* Adiciona transição suave */
+}
+
+button.shadow:hover {
+    transform: translateY(-2px); /* Move o botão um pouco para cima */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra */
+}
+
+button.shadow:active {
+    transform: translateY(1px); /* move o botão um pouco para baixo quando clicado*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* diminui a sombra quando clicado*/
+}
+
+button.shadow-modal {
+    padding: 15px 20px;
+    background-color: #0f0f0f;
+    color: var(--amarelo);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease; /* Adiciona transição suave */
+}
+
+button.shadow-modal:hover {
+    transform: translateY(-2px); /* Move o botão um pouco para cima */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra */
+}
+
+button.shadow-modal:active {
+    transform: translateY(1px); /* move o botão um pouco para baixo quando clicado*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* diminui a sombra quando clicado*/
+}
+
+button.shadow-modal-cancelar {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: var(--cor-fundo-body);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+    cursor: pointer;
+    border: #0f0f0f solid 1px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease; /* Adiciona transição suave */
+}
+
+button.shadow-modal-cancelar:hover {
+    transform: translateY(-2px); /* Move o botão um pouco para cima */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra */
+}
+
+button.shadow-modal-cancelar:active {
+    transform: translateY(1px); /* move o botão um pouco para baixo quando clicado*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* diminui a sombra quando clicado*/
+}
+ 
+a {
+    text-decoration: none;
+}
+
+:global(.toast) {
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+:global(.toast.success) {
+    background: var(--verde);
+    color: white;
+}
+
+:global(.toast.error) {
+    background: var(--vermelho);
+    color: white;
+}
+
+/* Add this if you don't have these color variables */
+:root {
+    --verde: #4CAF50;
+    --vermelho: #F44336;
+}
